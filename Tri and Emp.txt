@@ -1,0 +1,71 @@
+Create database triangles;
+Use triangles;
+CREATE TABLE Triangles(
+	Triangles INT PRIMARY KEY,
+    Side_A INT,
+    Side_B INT,
+    Side_C INT
+    );
+    
+Insert Into Triangles Values(1, "20", "20", "23");
+Insert Into Triangles Values(2, "20", "20", "20");
+Insert Into Triangles Values(3, "20", "21", "22");
+Insert Into Triangles Values(4, "13", "14", "30");
+
+SELECT * FROM TRIANGLES ;
+
+# query to obtain the sum of side_A of all triangles
+SELECT SUM(Side_A) AS total_side_A FROM triangles;
+
+# query to obtain an equilateral triangle from table
+SELECT side_A, side_B, side_C
+From Triangles
+WHERE side_A = side_B AND side_B = side_C;
+
+#  query to obtain an isosceles triangle from table
+SELECT side_A, side_B, side_C
+From Triangles
+WHERE side_A = side_B OR side_A = side_C OR side_B = side_C;
+
+# no. of triangles in the table 
+SELECT COUNT(*) AS num_triangles FROM triangles;
+
+# length of side_B of Triangle 3
+SELECT length(side_B) AS Triangle3 from triangles;
+
+
+
+Employees  Data
+
+create database employees;
+use employees;
+CREATE TABLE Employees(
+	 employee_id INT PRIMARY KEY,
+     name VARCHAR(20),
+     months INT,
+     salary INT
+     );
+     
+ Insert into Employees Values(12228, "Rahul", "15", "10000");
+ Insert into Employees Values(33645, "Amit", "1", "15000");
+ Insert into Employees Values(45692, "Aditi", "17", "18000");
+ Insert into Employees Values(56188, "Pavan", "11", "21000");
+ 
+ # Count the total no.of employees.
+ SELECT COUNT(*) as Sum_employees from employees;
+ 
+ # the salary of Rahul.
+SELECT Salary
+FROM Employees
+WHERE Name = 'Rahul';
+
+# Amit’s months to 12
+UPDATE Employees
+Set Months = 12
+WHERE Name = 'Amit';
+
+# the sum of salaries of all employees
+SELECT SUM(Salary) as total_Salary from employees;
+
+# no.of employees whose name starts with ‘A'
+SELECT COUNT(*) as num_of_employees FROM employees WHERE name LIKE 'A%';
